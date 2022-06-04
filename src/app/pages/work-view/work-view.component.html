@@ -1,0 +1,63 @@
+<div class="main" [class]="modalOpened ? 'opened' : ''">
+    <h3>{{work.name}}</h3>
+    <div class="main-flex">
+        <div class="leftside">
+            <div class="block">
+                <h5>Work:</h5>
+                <h6>{{work.degree}}</h6>
+            </div>
+            <div class="block">
+                <h5>Deadline to apply:</h5>
+                <h6>{{work.deadline}}</h6>
+            </div>
+            <div class="block">
+                <h5>Work format:</h5>
+                <h6>{{work.format}}</h6>
+            </div>
+            <div class="block">
+                <h5>Location:</h5>
+                <h6>{{work.company.location}}</h6>
+            </div>
+            <div class="block">
+                <h5>Company:</h5>
+                <h6>{{work.company.name}}</h6>
+            </div>
+
+        </div>
+        <div class="rightside">
+            <div>
+                <h5>Required skills</h5>
+                <ul>
+                    <li *ngFor="let qua of work.requiredSkills">{{qua}}</li>
+                </ul>
+            </div>
+            <div>
+                <h5>Nice to have skills</h5>
+                <ul>
+                    <li *ngFor="let qua of work.niceSkills">{{qua}}</li>
+                </ul>
+            </div>
+            <div>
+                <h5>Work address:</h5>
+                <h6>{{work.company.address}}</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="register">
+        <div>
+            <p>{{work.company.phone}}</p>
+            <a href="">{{work.company.email}}</a>
+        </div>
+        <div>
+            <button>REGISTER</button>
+        </div>
+    </div>
+    <button class="close" (click)="closeModal()">
+        <div class="close-btn">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+</div>
+<div class="back" (click)="closeModal()"></div>

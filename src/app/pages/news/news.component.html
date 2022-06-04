@@ -1,0 +1,51 @@
+<div class="news">
+    <h2 class="news__title">NEWS</h2>
+    <div *ngIf="!loaded; else news">
+        <div class="news__section">
+            <div class="news__big gradient">
+            </div>
+            <div class="news__small">
+                <div class="gradient"></div>
+                <div class="gradient"></div>
+            </div>
+        </div>
+        <div class="news__normal">
+            <div class="gradient"></div>
+            <div class="gradient"></div>
+            <div class="gradient"></div>
+            <div class="gradient"></div>
+            <div class="gradient"></div>
+            <div class="gradient"></div>
+        </div>
+    </div>
+    <ng-template #news>
+        <div class="news__section">
+            <div class="news__big" [style]="{'backgroundImage': newsImage(bigNews.img)}" (click)="openModal(bigNews)">
+                <h2>{{bigNews.title}}</h2>
+                <p>{{bigNews.blog}}</p>
+                <em>{{bigNews.date}}</em>
+            </div>
+            <div class="news__small">
+                <div *ngFor="let news of smallNews" [style]="{'backgroundImage': newsImage(news.img)}"
+                    (click)="openModal(news)">
+                    <h2>{{news.title}}</h2>
+                    <p>{{news.blog}}</p>
+                    <em>{{news.date}}</em>
+                </div>
+            </div>
+        </div>
+        <div class="news__normal">
+            <div *ngFor="let news of otherNews" [style]="{'backgroundImage': newsImage(news.img)}"
+                (click)="openModal(news)">
+                <h2>{{news.title}}</h2>
+                <p>{{news.blog}}</p>
+                <em>{{news.date}}</em>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+
+<app-news-view [modalOpened]="modalState" [news]="currentNews" (newItemEvent)="emitFunc($event)">
+</app-news-view>
+<div class="back"></div>

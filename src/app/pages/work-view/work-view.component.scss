@@ -1,0 +1,252 @@
+$purple: #7834BE;
+$yellow: #F9D065;
+$gray: #f7f6f9;
+$black: #424242;
+
+
+.main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    padding: 20px;
+    background-color: $gray;
+    border: 3px solid $purple;
+    border-radius: 15px;
+    transition: 0.3s;
+    z-index: 1000;
+
+    &.opened {
+        opacity: 1;
+        height: 80vh;
+        min-height: 656px;
+        width: 700px;
+        padding-bottom: 120px;
+
+        &+.back {
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+
+    h3 {
+        text-align: center;
+        color: $purple;
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .register {
+        width: 100%;
+        position: absolute;
+        border-radius: 15px 15px 0 0;
+        padding: 20px;
+        border-top: 2px solid $purple;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p,
+        a {
+            font-size: 17px;
+        }
+
+        button {
+            border: none;
+            color: $purple;
+            background-color: $gray;
+            border-radius: 15px;
+            padding: 10px 25px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                color: $gray;
+                background-color: $purple;
+            }
+        }
+    }
+
+    .main-flex {
+        display: flex;
+        justify-content: space-between;
+        overflow-y: auto;
+        height: 500px;
+    }
+
+    .leftside {
+        flex: 1;
+        padding-top: 30px;
+        position: relative;
+        margin-right: 20px;
+
+        .work-icon-logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            will-change: transform;
+            transform: scale(1.001);
+        }
+
+        h4 {
+            text-align: center;
+            color: $purple;
+            font-size: 22px;
+            text-align: center;
+        }
+    }
+
+    .rightside {
+        width: 45%;
+        padding-top: 30px;
+        color: $black;
+
+        div {
+            margin-bottom: 15px;
+            border: 1px solid $purple;
+            border-radius: 15px;
+            padding: 15px;
+
+            h5 {
+                font-size: 22px;
+                font-weight: 400;
+                color: $black;
+                min-width: 210px;
+                margin-bottom: 15px;
+            }
+
+            h6 {
+                font-size: 16px;
+                font-weight: 400;
+                color: #7834BE;
+                margin-bottom: 5px;
+            }
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: $purple;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
+.back {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s;
+    background-color: rgba(0, 0, 0, 0.527);
+    z-index: -1;
+}
+
+.close {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    right: 20px;
+    top: 10px;
+    height: 50px;
+    width: 41px;
+    background: transparent;
+    border: none;
+
+    &-btn {
+        position: relative;
+
+        span {
+            height: 3px;
+            width: 40px;
+            position: absolute;
+            display: block;
+            background-color: $purple;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            &:nth-child(1) {
+                transform: rotateZ(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: rotateZ(-45deg);
+            }
+        }
+    }
+
+}
+
+.block {
+    display: flex;
+    margin-bottom: 15px;
+    border: 1px solid $purple;
+    border-radius: 15px;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+
+    h5 {
+        font-size: 21px;
+        font-weight: 400;
+        color: $black;
+    }
+
+    h6 {
+        font-size: 17px;
+        font-weight: 400;
+        color: $purple;
+    }
+}
+
+@media screen and (max-height: 656px) {
+    .main {
+        &.opened {
+            min-height: 100vh;
+        }
+
+        &-flex {
+            height: calc(100vh - 166px) !important;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        &.opened {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .main {
+        &-flex {
+            flex-direction: column;
+            align-items: center;
+
+            .leftside,
+            .rightside {
+                width: 80%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}

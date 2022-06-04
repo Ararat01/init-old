@@ -1,0 +1,13 @@
+<div class="main" [class]="modalOpened ? 'opened' : ''">
+    <img [src]="news.img" alt="" class="news__img">
+    <h2 class="news__title">{{news.title}}</h2>
+    <pre class="news__blog">{{news.blog}}</pre>
+    <em class="news__date">Publish date: {{news.date}}</em>
+    <button class="close" (click)="closeModal()">
+        <div class="close-btn">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+</div>
+<div class="back" (click)="closeModal()"></div>

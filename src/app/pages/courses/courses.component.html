@@ -1,0 +1,95 @@
+<div class="course-page">
+    <div class="course__section">
+        <h2 class="title">COURSES</h2>
+    </div>
+    <div class="courses">
+        <div class="courses__view">
+            <div class="loading courses__view" *ngIf="!loaded; else courses">
+                <div class="course__block gradient" *ngFor="let i of array"></div>
+            </div>
+            <ng-template #courses>
+                <a class="course__block add-course" href="https://forms.gle/nJ9Dst5rwf9q89yj6" target="_blank">
+                    <p>+</p>
+                    <span>ADD COURSE</span>
+                </a>
+                <a class="course__block add-course" href="https://forms.gle/D59uzQUyht14ebr38" target="_blank">
+                    <p>+</p>
+                    <span>ORDER COURSE</span>
+                </a>
+                <div class="course__block" *ngFor="let course of filteredCourses">
+                    <app-course [course]="course"></app-course>
+                </div>
+            </ng-template>
+        </div>
+        <div class="courses__filter" [class]="filtersState ? 'opened' : ''">
+            <div class="courses__filter__block" [style]="{boxShadow: filtersState ? '' : 'none'}">
+                <h3>Filters</h3>
+                <form [formGroup]="form" (ngSubmit)="filter()">
+                    <table>
+                        <tr>
+                            <td><label for="format">Format</label></td>
+                            <td class="format">
+                                <label for="all">
+                                    All
+                                    <input value="all" type="radio" checked name="format" id="all"
+                                        formControlName="format">
+                                </label>
+                                <label for="online">
+                                    Online
+                                    <input value="Online" type="radio" name="format" id="online"
+                                        formControlName="format">
+                                </label>
+                                <label for="offline">
+                                    Offline
+                                    <input value="Offline" type="radio" name="format" id="offline"
+                                        formControlName="format">
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="course">Course</label></td>
+                            <td>
+                                <div class="select">
+                                    <select id="course" formControlName="course">
+                                        <option value="All">All</option>
+                                        <option value="Frontend">Frontend</option>
+                                        <option value="Backend">Backend</option>
+                                        <option value="AI">AI</option>
+                                        <option value="Design">Design</option>
+                                        <option value="QA">QA</option>
+                                        <option value="SMM">SMM</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="this.form.value['format'] !== 'Online'">
+                            <td><label for="location">Location</label></td>
+                            <td>
+                                <div class="select">
+                                    <select id="location" formControlName="location">
+                                        <option value="All">All</option>
+                                        <option value="Gyumri">Gyumri</option>
+                                        <option value="Erevan">Erevan</option>
+                                        <option value="Vanadzor">Vanadzor</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                    </table>
+                    <button>Filter</button>
+                </form>
+
+
+            </div>
+            <button (click)="openFilters()" class="courses__filter-btn" [class]="filtersState ? 'active' : ''">
+                <img src="assets/icons/filter.png" alt="">
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="order-course__block" [class]="orderCourse ? 'opened' : ''"></div>
+<div class="order-course__back" [class]="orderCourse ? 'opened' : ''" (click)="addCourse(false)"></div>
+<div class="back"></div>

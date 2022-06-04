@@ -1,0 +1,13 @@
+<div class="work" (click)="openModal()">
+    <div class="work__info">
+        <h3>{{work.name}}</h3>
+        <p>{{work.degree}}</p>
+        <p>{{work.deadline}}</p>
+        <span>{{work.company.location}}</span>
+    </div>
+    <div class="work__img">
+        <img class="work__img-icon" [src]="'assets/course-icons/' + work.logo + '.png'" alt="">
+    </div>
+    <img class="companyLogo" src="assets/course-icons/gitc.png" alt="">
+</div>
+<app-work-view [modalOpened]="modalState" [work]="work" (newItemEvent)="emitFunc($event)"></app-work-view>

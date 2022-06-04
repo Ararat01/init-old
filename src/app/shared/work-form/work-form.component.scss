@@ -1,0 +1,66 @@
+$purple: #7834BE;
+$yellow: #F9D065;
+$gray: #f7f6f9;
+$black: #424242;
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    h2 {
+        text-align: center;
+        font-size: 32px;
+        color: $black;
+        margin-bottom: 25px;
+    }
+
+    div {
+        width: 80%;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        label {
+            font-size: 22px;
+            color: $black;
+        }
+
+        input,
+        textarea {
+            font-size: 20px;
+            color: $black;
+            padding: 10px;
+        }
+
+        textarea {
+            max-width: 70%;
+        }
+    }
+
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        max-width: 70%;
+
+        button {
+            width: 30%;
+            padding: 10px 20px;
+            transition: .3s;
+            border: 1px solid $purple;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: $gray;
+            color: $purple;
+
+            &:hover {
+                background-color: $purple;
+                color: $gray;
+            }
+        }
+    }
+}

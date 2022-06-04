@@ -1,0 +1,84 @@
+<div class="main-section" [class]="!loaded ? 'loading' : ''">
+    <img class="logo" src="assets/icons/logo.png" alt="">
+    <div class="main__carousel">
+        <div class="main__carousel-body" [style]="{left: pos * -100 + '%'}">
+            <div class="main__block">
+                <div class="main__block-info">
+                    <h3>Courses</h3>
+                    <p>Up-to-date knowledge from recognized market experts for beginners and practitioners.
+                        Our teachers help to fully master the profession from scratch, build a portfolio and
+                        allows you to get a specific skill.</p>
+                    <button routerLink="/courses">Show</button>
+                </div>
+                <div class="main__block-img">
+                    <img src="assets/design/course.png" alt="">
+                </div>
+            </div>
+            <div class="main__block">
+                <div class="main__block-info">
+                    <h3>Work</h3>
+                    <p>If IT sounds like the place you want to be, you're in luck because there's a place for you. We
+                        collect the best vacancies in the industry we are looking for
+                        Professionals with the right skill set available endless IT job opportunities.</p>
+                    <button routerLink="/work">Show</button>
+                </div>
+                <div class="main__block-img">
+                    <img src="assets/design/work.png" alt="">
+                </div>
+            </div>
+            <div class="main__block">
+                <div class="main__block-info">
+                    <h3>Events</h3>
+                    <p>We publicize events in the field of information technology, events - a poster of all major
+                        business events in the IT market in Armenia
+                        Free specialized IT conferences, seminars, master classes, webinars on actual topics</p>
+                    <button routerLink="/events">Show</button>
+                </div>
+                <div class="main__block-img">
+                    <img src="assets/design/events.png" alt="">
+                </div>
+            </div>
+            <div class="main__block">
+                <div class="main__block-info">
+                    <h3>News</h3>
+                    <p>Get the latest it news videos, articles and the latest top stories in IT from all the world
+                    </p>
+                    <button routerLink="/news">Show</button>
+                </div>
+                <div class="main__block-img">
+                    <img src="assets/design/news.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="slider">
+            <button (click)="carousel(0)" class="slider-navigation"
+                [class]="pos == 0 ? 'active' : ''"><span></span></button>
+            <button (click)="carousel(1)" class="slider-navigation"
+                [class]="pos == 1 ? 'active' : ''"><span></span></button>
+            <button (click)="carousel(2)" class="slider-navigation"
+                [class]="pos == 2 ? 'active' : ''"><span></span></button>
+            <button (click)="carousel(3)" class="slider-navigation"
+                [class]="pos == 3 ? 'active' : ''"><span></span></button>
+        </div>
+    </div>
+</div>
+<div class="background" *ngIf="!loaded"></div>
+<div class="animation" *ngIf="!loaded">
+    <h1><span>in</span>IT</h1>
+    <p>your career</p>
+</div>
+<svg width="200px" class="animation-logo" *ngIf="!loaded" viewBox="0 0 3696 1515" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M187.257 1228.47C187.257 1236.75 185.185 1242.71 181.041 1246.34C176.897 1249.45 170.422 1251 161.616 1251H52.059C44.289 1251 38.85 1249.45 35.742 1246.34C33.152 1243.23 31.857 1238.31 31.857 1231.57V857.061C31.857 845.147 36.778 839.19 46.62 839.19H173.271C182.595 839.19 187.257 844.37 187.257 854.73V1228.47ZM187.257 782.469C187.257 797.491 178.71 805.002 161.616 805.002H52.059C44.289 805.002 38.85 803.448 35.742 800.34C33.152 796.714 31.857 791.534 31.857 784.8V692.337C31.857 680.423 36.778 674.466 46.62 674.466H173.271C182.595 674.466 187.257 679.905 187.257 690.783V782.469ZM271.349 1251C257.881 1251 251.147 1244.52 251.147 1231.57V857.061C251.147 845.147 256.068 839.19 265.91 839.19H391.007C400.331 839.19 404.993 844.37 404.993 854.73V889.695C404.993 892.803 405.77 894.875 407.324 895.911C409.396 896.947 411.986 895.911 415.094 892.803C425.972 880.889 437.886 870.27 450.836 860.946C463.786 851.622 477.513 844.37 492.017 839.19C507.039 834.01 522.579 831.42 538.637 831.42C574.897 831.42 604.164 842.816 626.438 865.608C649.23 888.4 660.626 918.962 660.626 957.294V1227.69C660.626 1243.23 652.856 1251 637.316 1251H523.097C516.363 1251 511.701 1249.7 509.111 1247.11C506.521 1244.01 505.226 1238.83 505.226 1231.57V978.273C505.226 966.359 501.341 957.294 493.571 951.078C486.319 944.344 476.477 940.977 464.045 940.977C456.275 940.977 448.764 942.531 441.512 945.639C434.778 948.229 428.562 952.373 422.864 958.071C417.166 963.769 411.727 971.021 406.547 979.827V1228.47C406.547 1243.49 398 1251 380.906 1251H271.349Z"
+        fill="white" />
+    <path
+        d="M761.11 1264V221.68H1095.93V1264H761.11ZM1585.48 1264V488.32H1243.09V221.68H2261.17V488.32H1920.3V1264H1585.48Z"
+        fill="#F9D065" />
+    <ellipse cx="2719.16" cy="451.505" rx="368.5" ry="361" transform="rotate(10 2719.16 451.505)" fill="white" />
+    <ellipse cx="2719.16" cy="451.505" rx="245.421" ry="240.426" transform="rotate(10 2719.16 451.505)"
+        fill="#7834BE" />
+    <ellipse cx="2619.24" cy="339.802" rx="147.4" ry="144.4" transform="rotate(10 2619.24 339.802)" fill="white" />
+    <rect x="3108.85" y="731.65" width="666" height="300" rx="150" transform="rotate(52 3108.85 731.65)" fill="white" />
+    <rect x="2944.06" y="603.951" width="404" height="197" transform="rotate(52 2944.06 603.951)" fill="white" />
+</svg>

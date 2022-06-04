@@ -1,0 +1,14 @@
+<div class="course" (click)="openModal()">
+    <div class="course__info">
+        <h3>{{course.name}}</h3>
+        <p>{{course.duration}}</p>
+        <p>{{course.location}}</p>
+        <p>{{course.format}}</p>
+        <span>Price {{course.price}} AMD</span>
+    </div>
+    <div class="course__img">
+        <img class="course__img-icon" [src]="'assets/course-icons/' + course.logo + '.png'" alt="">
+    </div>
+    <img class="companyLogo" src="assets/course-icons/gitc.png" alt="">
+</div>
+<app-course-view [modalOpened]="modalState" [course]="course" (newItemEvent)="emitFunc($event)"></app-course-view>

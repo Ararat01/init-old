@@ -1,0 +1,180 @@
+$purple: #7834BE;
+$yellow: #F9D065;
+$gray: #f7f6f9;
+$black: #424242;
+
+
+
+
+.back {
+    background-image: url("./../../../assets/design/bg2.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-color: $gray;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.work-page {
+    padding-left: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+    .work-page {
+        padding: 0;
+    }
+}
+
+.work__section {
+    padding-top: 50px;
+}
+
+.title {
+    font-size: 40px;
+    color: $purple;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.work__block {
+    min-width: 300px;
+    width: 22%;
+    height: 180px;
+    margin: 0 1.5%;
+    margin-bottom: 15px;
+}
+
+.works__view {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.works {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.icon {
+    font-size: 100px;
+    color: $yellow;
+    margin: 15px;
+}
+
+select {
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    flex: 1;
+    padding: 0 1em;
+    color: $black;
+    background-color: $yellow;
+    background-image: none;
+    cursor: pointer;
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+.select {
+    position: relative;
+    display: flex;
+    height: 45px;
+    border-radius: 15px;
+    overflow: hidden;
+
+    &::after {
+        content: '\25BC';
+        position: absolute;
+        top: 50%;
+        transform: translate(-10px, -50%);
+        color: $black;
+        right: 0;
+        transition: 0.25s all ease;
+        pointer-events: none;
+    }
+}
+
+.loading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    div {
+        border-radius: 15px;
+    }
+}
+
+.gradient {
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: ease-in-out;
+    background: #7834be;
+    background: linear-gradient(to right, #7834be 8%, #b366ff 38%, #7834be 54%);
+    background-size: 100% 100%;
+
+    position: relative;
+
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0
+    }
+
+    50% {
+        background-position: 468px 0
+    }
+
+    100% {
+        background-position: -468px 0
+    }
+}
+
+
+// media
+@media screen and (max-width: 1600px) {
+    .work__block {
+        min-width: 340px;
+        width: 30%;
+    }
+}
+
+
+@media screen and (max-width: 1275px) {
+    .work__block {
+        width: 45%;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    .works__view {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .work__block {
+        min-width: 300px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .work__block {
+        width: 85%;
+        height: 180px;
+    }
+}

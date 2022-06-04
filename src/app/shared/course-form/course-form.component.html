@@ -1,0 +1,51 @@
+<form [formGroup]="editCourse" *ngIf="courseEditForm">
+        <h2>Edit course</h2>
+        <div><label for="">Name</label><input formControlName="name"></div>
+        <div><label for="">Type</label><input formControlName="type"></div>
+        <div><label for="">Duration</label><input formControlName="duration"></div>
+        <div><label for="">Deadline</label><input formControlName="deadline"></div>
+        <div><label for="">Start</label><input formControlName="start"></div>
+        <div><label for="">Format</label><input formControlName="format"></div>
+        <div><label for="">Location</label><input formControlName="location"></div>
+        <div><label for="">Logo</label><input formControlName="logo"></div>
+        <div><label for="">Price</label><input formControlName="price"></div>
+        <div><label for="">Teacher Name</label><input type="text" formControlName="teacherName"></div>
+        <div><label for="">Teacher Work</label><input type="text" formControlName="teacherWork"></div>
+        <div><label for="">Contact phone</label><input type="text" formControlName="contactsPhone"></div>
+        <div><label for="">Contact email</label><input type="text" formControlName="contactsEmail"></div>
+        <div><label for="">Company followers</label><input type="text" formControlName="companySubs"></div>
+        <div><label for="">Course path</label><textarea rows="10" cols="50" formControlName="course"></textarea></div>
+        <div><label for="">Course advantage</label><textarea rows="10" cols="50" formControlName="advantage"></textarea>
+        </div>
+        <div><label for="">About company</label><textarea rows="10" cols="50" formControlName="about"></textarea></div>
+        <div class="action">
+                <button type="button" (click)="cancel()">Cancel</button>
+                <button type="button" (click)="deleteCourse()">Delete</button>
+                <button type="submit" (click)="editCourseSubmit()">Update</button>
+        </div>
+</form>
+<form [formGroup]="editCourse" *ngIf="courseAddForm">
+        <h2>Edit course</h2>
+        <div><label for="">Name</label><input formControlName="name"></div>
+        <div><label for="">Type</label><input formControlName="type"></div>
+        <div><label for="">Duration</label><input formControlName="duration"></div>
+        <div><label for="">Deadline</label><input formControlName="deadline"></div>
+        <div><label for="">Start</label><input formControlName="start"></div>
+        <div><label for="">Format</label><input formControlName="format"></div>
+        <div><label for="">Location</label><input formControlName="location"></div>
+        <div><label for="">Logo</label><input formControlName="logo"></div>
+        <div><label for="">Price</label><input formControlName="price"></div>
+        <div><label for="">Teacher Name</label><input type="text" formControlName="teacherName"></div>
+        <div><label for="">Teacher Work</label><input type="text" formControlName="teacherWork"></div>
+        <div><label for="">Contact phone</label><input type="text" formControlName="contactsPhone"></div>
+        <div><label for="">Contact email</label><input type="text" formControlName="contactsEmail"></div>
+        <div><label for="">Company followers</label><input type="text" formControlName="companySubs"></div>
+        <div><label for="">Course path</label><textarea rows="10" cols="50" formControlName="course"></textarea></div>
+        <div><label for="">Course advantage</label><textarea rows="10" cols="50" formControlName="advantage"></textarea>
+        </div>
+        <div><label for="">About company</label><textarea rows="10" cols="50" formControlName="about"></textarea></div>
+        <div class="action">
+                <button type="button" (click)="cancel()">Cancel</button>
+                <button type="submit" (click)="addCourseSubmit()">Add</button>
+        </div>
+</form>

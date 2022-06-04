@@ -1,0 +1,76 @@
+<div class="main" [class]="modalOpened ? 'opened' : ''">
+    <h3>{{course.name}}</h3>
+    <div class="main-flex">
+        <div class="leftside">
+            <img [src]="course.teacher.img" alt="">
+            <img class="course-icon-logo" [src]="'assets/course-icons/' + course.logo + '.png'" alt="">
+            <h4>{{course.teacher.name}}</h4>
+            <span>{{course.teacher.work}}</span>
+            <table>
+                <tr>
+                    <td>Course fee:</td>
+                    <th>{{course.price}} AMD</th>
+                </tr>
+                <tr>
+                    <td>Course duration:</td>
+                    <th>{{course.duration}}</th>
+                </tr>
+                <tr *ngIf="course.location">
+                    <td>Location:</td>
+                    <th>{{course.location}}</th>
+                </tr>
+                <tr *ngIf="course.format !== 'Offline'">
+                    <td>Course format:</td>
+                    <th>{{course.format}}</th>
+                </tr>
+                <tr>
+                    <td>Deadline to apply:</td>
+                    <th>{{course.deadline}}</th>
+                </tr>
+                <tr>
+                    <td>Course starts:</td>
+                    <th>{{course.start}}</th>
+                </tr>
+            </table>
+        </div>
+        <div class="rightside">
+            <h5>Course path</h5>
+            <ul>
+                <li *ngFor="let crs of course.course">{{crs}}</li>
+            </ul>
+            <h5>Course advantage</h5>
+            <ul>
+                <li *ngFor="let crs of course.advantage">{{crs}}</li>
+            </ul>
+            <h5>About company</h5>
+            <p>{{course.about}}</p>
+            <table>
+                <tr>
+                    <th>Students:</th>
+                    <td>{{course.companySubs}}</td>
+                </tr>
+                <tr>
+                    <th>Graduted students:</th>
+                    <td>80%</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="register">
+        <div>
+            <p>{{course.contacts.phone}}</p>
+            <a href="">{{course.contacts.email}}</a>
+        </div>
+        <div>
+            <button>REGISTER</button>
+        </div>
+    </div>
+    <button class="close" (click)="closeModal()">
+        <div class="close-btn">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+</div>
+<div class="back" (click)="closeModal()"></div>

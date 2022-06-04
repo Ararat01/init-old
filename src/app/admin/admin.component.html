@@ -1,0 +1,83 @@
+<ng-template #loginview>
+    <div class="login">
+        <form [formGroup]="form" (ngSubmit)="login()" class="login__form">
+            <h3>Admin</h3>
+            <input type="text" placeholder="login" formControlName="login">
+            <input type="password" placeholder="password" formControlName="password">
+            <span *ngIf="error">Wrong login or password</span>
+            <button>login</button>
+        </form>
+    </div>
+</ng-template>
+
+<div class="admin" *ngIf="adminLoged; else loginview">
+    <div *ngIf="loading; else adminPanel" class="loading">
+        <span></span>
+    </div>
+    <ng-template #adminPanel>
+        <div class="admin__panel panel">
+            <div class="panel__leftside">
+                <h2>DATABASE</h2>
+                <div class="panel__leftside-resource">
+                    <h3 [class]="coursesShow ? 'opened' : ''" (click)="coursesShow = !coursesShow">Courses
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </h3>
+
+                    <button (click)="openCourseAdd()">+ Add course</button>
+                    <div [class]="coursesShow ? 'opened' : ''">
+                        <p *ngFor="let course of courses" (click)="openCourseEdit(course)">{{course.name}}:
+                            {{course.start}}<span>Edit</span></p>
+                    </div>
+                </div>
+                <div class="panel__leftside-resource">
+                    <h3 [class]="workShow ? 'opened' : ''" (click)="workShow = !workShow">Work <svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg></h3>
+                    <button (click)="openWorkAdd()">+ Add work</button>
+                    <div [class]="workShow ? 'opened' : ''">
+                        <p *ngFor="let job of work" (click)="openWorkEdit(job)">{{job.name}}: {{job.degree}}</p>
+                    </div>
+                </div>
+                <div class="panel__leftside-resource">
+                    <h3 [class]="eventsShow ? 'opened' : ''" (click)="eventsShow = !eventsShow">Events <svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg></h3>
+                    <button>+ Add event</button>
+                    <div [class]="eventsShow ? 'opened' : ''">
+                        <p *ngFor="let event of events">{{event.name}}</p>
+                    </div>
+                </div>
+                <div class="panel__leftside-resource">
+                    <h3 [class]="newsShow ? 'opened' : ''" (click)="newsShow = !newsShow">News <svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg></h3>
+                    <button>+ Add news</button>
+                    <div [class]="newsShow ? 'opened' : ''">
+                        <p *ngFor="let nws of news">{{nws.title}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel__rightside">
+                <app-course-form [courseAddForm]="courseAddForm" [courseEditForm]="courseEditForm"
+                    [currentCourse]="currentCourse" [courseValue]="courseValue" (newItemEvent)="close($event)">
+                </app-course-form>
+                <app-work-form [workAddForm]="workAddForm" [workEditForm]="workEditForm" [currentWork]="currentWork"
+                    [workValue]="workValue" (newItemEvent)="close($event)">
+                </app-work-form>
+            </div>
+        </div>
+    </ng-template>
+</div>.

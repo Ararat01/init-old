@@ -1,0 +1,43 @@
+<form [formGroup]="editWork" *ngIf="workEditForm">
+    <h2>Edit work</h2>
+    <div><label for="">Name</label><input formControlName="name"></div>
+    <div><label for="">Degree</label><input formControlName="degree"></div>
+    <div><label for="">Deadline</label><input formControlName="deadline"></div>
+    <div><label for="">Format</label><input formControlName="format"></div>
+    <div><label for="">Logo</label><input formControlName="logo"></div>
+    <div><label for="">Company Location</label><input formControlName="companyLocation"></div>
+    <div><label for="">Company Name</label><input formControlName="companyName"></div>
+    <div><label for="">Company Address</label><input formControlName="companyAddress"></div>
+    <div><label for="">Company Email</label><input formControlName="companyEmail"></div>
+    <div><label for="">Company Phone</label><input formControlName="companyPhone"></div>
+    <div><label for="">Required Skills</label><textarea rows="10" cols="50" formControlName="requiredSkills"></textarea>
+    </div>
+    <div><label for="">Nice Skills</label><textarea rows="10" cols="50" formControlName="niceSkills"></textarea>
+    </div>
+    <div class="action">
+        <button type="button" (click)="cancel()">Cancel</button>
+        <button type="button" (click)="deleteCourse()">Delete</button>
+        <button type="submit" (click)="editWorkSubmit()">Update</button>
+    </div>
+</form>
+<form [formGroup]="editWork" *ngIf="workAddForm">
+    <h2>Add work</h2>
+    <div><label for="">Name</label><input formControlName="name"></div>
+    <div><label for="">Degree</label><input formControlName="degree"></div>
+    <div><label for="">Deadline</label><input formControlName="deadline"></div>
+    <div><label for="">Format</label><input formControlName="format"></div>
+    <div><label for="">Logo</label><input formControlName="logo"></div>
+    <div><label for="">Company Location</label><input formControlName="companyLocation"></div>
+    <div><label for="">Company Name</label><input formControlName="companyName"></div>
+    <div><label for="">Company Address</label><input formControlName="companyAddress"></div>
+    <div><label for="">Company Email</label><input formControlName="companyEmail"></div>
+    <div><label for="">Company Phone</label><input formControlName="companyPhone"></div>
+    <div><label for="">Required Skills</label><textarea rows="10" cols="50" formControlName="requiredSkills"></textarea>
+    </div>
+    <div><label for="">Nice Skills</label><textarea rows="10" cols="50" formControlName="niceSkills"></textarea>
+    </div>
+    <div class="action">
+        <button type="button" (click)="cancel()">Cancel</button>
+        <button type="submit" (click)="addCourseSubmit()">Add</button>
+    </div>
+</form>

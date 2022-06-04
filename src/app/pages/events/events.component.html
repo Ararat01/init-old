@@ -1,0 +1,23 @@
+<div class="slider">
+    <div class="events" [style]="{'width': events.length * 100 + '%', 'left': position}">
+        <div class="events__block" *ngFor="let event of events">
+
+            <div class="events__info">
+                <h2>{{event.name}}</h2>
+                <p>{{event.about}}</p>
+                <h5>Place: <em>{{event.place}}</em></h5>
+                <h5>Date: <em>{{event.date}}</em></h5>
+                <button>REGISTER</button>
+            </div>
+
+            <div class="events__img">
+                <img [src]="event.img" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <button (click)="prev()"><img class="navigation__prev" src="assets/design/arrow.png" alt=""></button>
+        <span>{{pos + 1}}</span>
+        <button (click)="next()"><img class="navigation__next" src="assets/design/arrow.png" alt=""></button>
+    </div>
+</div>
